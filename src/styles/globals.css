@@ -1,0 +1,98 @@
+/* ═══════════════════════════════════════════════════════
+   AI CLONE — Global Styles
+   Font: Syne (display) + DM Sans (body)
+   Theme: Dark cosmic / Light morning
+═══════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Brand */
+  --violet:   #7c6dfa;
+  --rose:     #f06292;
+  --teal:     #26d4b0;
+  --amber:    #fbbf24;
+
+  /* Radius */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+
+  /* Fonts */
+  --f-head: 'Syne', sans-serif;
+  --f-body: 'DM Sans', sans-serif;
+
+  /* Transitions */
+  --t-fast: 0.15s ease;
+  --t-mid:  0.25s ease;
+  --t-slow: 0.4s ease;
+}
+
+/* ── DARK THEME (default) ── */
+[data-theme="dark"], :root {
+  --bg-base:    #07070f;
+  --bg-card:    #0f0f1c;
+  --bg-elevated:#17172a;
+  --bg-input:   #12121f;
+  --bg-hover:   #1e1e30;
+
+  --txt-primary:   #eeeeff;
+  --txt-secondary: #9090bb;
+  --txt-muted:     #5555880;
+
+  --border-subtle:  rgba(120,105,255,0.12);
+  --border-medium:  rgba(120,105,255,0.25);
+  --border-strong:  rgba(120,105,255,0.45);
+
+  --glow-violet: 0 0 30px rgba(124,109,250,0.2);
+  --glow-rose:   0 0 30px rgba(240,98,146,0.2);
+
+  --bubble-ai:   #17172a;
+  --bubble-user: linear-gradient(135deg, #6c5ee8, #9068ee);
+  --input-ring:  rgba(124,109,250,0.25);
+}
+
+/* ── LIGHT THEME ── */
+[data-theme="light"] {
+  --bg-base:    #f0eeff;
+  --bg-card:    #ffffff;
+  --bg-elevated:#f8f6ff;
+  --bg-input:   #ffffff;
+  --bg-hover:   #ede9ff;
+
+  --txt-primary:   #1a1240;
+  --txt-secondary: #5a4f90;
+  --txt-muted:     #9080bb;
+
+  --border-subtle:  rgba(100,80,220,0.1);
+  --border-medium:  rgba(100,80,220,0.2);
+  --border-strong:  rgba(100,80,220,0.4);
+
+  --glow-violet: 0 4px 30px rgba(100,80,220,0.12);
+  --glow-rose:   0 4px 30px rgba(200,60,120,0.1);
+
+  --bubble-ai:   #f3f0ff;
+  --bubble-user: linear-gradient(135deg, #7c6dfa, #9b8bff);
+  --input-ring:  rgba(100,80,220,0.2);
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--f-body);
+  background: var(--bg-base);
+  color: var(--txt-primary);
+  transition: background var(--t-slow), color var(--t-slow);
+  overflow: hidden;
+}
+
+#root { height: 100%; }
+
+::selection { background: rgba(124,109,250,0.3); }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: 2px; }
+
+button { font-family: var(--f-body); cursor: pointer; }
+input, textarea { font-family: var(--f-body); }

@@ -1,0 +1,94 @@
+/* ══ FEEDBACK FORM ══════════════════════════════════════════════ */
+.fb-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fb-in 0.3s ease;
+}
+@keyframes fb-in { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+/* Stars */
+.fb-stars-section {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 16px;
+  background: var(--bg-elevated); border: 0.5px solid var(--border-subtle);
+  border-radius: var(--r-lg);
+}
+.fb-stars-label { font-size: 13px; color: var(--txt-secondary); font-weight: 500; }
+.fb-stars-row { display: flex; gap: 6px; }
+.fb-star {
+  background: transparent; border: none; cursor: pointer;
+  font-size: 36px; color: var(--border-medium);
+  transition: all 0.12s ease; padding: 2px;
+  line-height: 1;
+}
+.fb-star.active { color: #fbbf24; transform: scale(1.1); }
+.fb-star:hover  { transform: scale(1.2); }
+.fb-rating-label { font-size: 13px; font-weight: 600; color: var(--txt-primary); min-height: 20px; }
+
+/* Message */
+.fb-msg-section { display: flex; flex-direction: column; gap: 6px; }
+.fb-label { font-size: 11px; font-weight: 600; color: var(--txt-secondary); }
+.fb-ta {
+  background: var(--bg-input); border: 0.5px solid var(--border-subtle);
+  border-radius: var(--r-md); padding: 11px 13px;
+  color: var(--txt-primary); font-family: var(--f-body); font-size: 13px;
+  resize: vertical; min-height: 100px; outline: none; line-height: 1.6;
+  transition: border-color var(--t-mid);
+}
+.fb-ta:focus { border-color: var(--violet); box-shadow: 0 0 0 2px rgba(124,109,250,0.1); }
+.fb-ta::placeholder { color: var(--txt-secondary); }
+
+.fb-ta-footer { display: flex; justify-content: space-between; align-items: center; }
+.fb-anon-note { font-size: 11px; color: var(--txt-secondary); }
+.fb-char { font-size: 10px; color: var(--txt-secondary); opacity: 0.6; }
+
+.fb-error {
+  font-size: 12px; color: #f06292;
+  padding: 8px 12px; border-radius: var(--r-sm);
+  background: rgba(240,98,146,0.1); border: 0.5px solid rgba(240,98,146,0.3);
+}
+
+.fb-submit {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 20px; border-radius: var(--r-md); border: 0.5px solid var(--border-medium);
+  background: var(--bg-card); color: var(--txt-secondary);
+  font-size: 14px; font-weight: 700; font-family: var(--f-body);
+  cursor: pointer; transition: all var(--t-mid);
+}
+.fb-submit.ready {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1a1200; border-color: transparent;
+  box-shadow: 0 4px 14px rgba(251,191,36,0.4);
+}
+.fb-submit.ready:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(251,191,36,0.5); }
+.fb-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+
+.fb-spinner {
+  width: 13px; height: 13px; border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.2); border-top-color: currentColor;
+  animation: spin 0.8s linear infinite; display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Thankyou */
+.fb-thankyou {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 28px; text-align: center;
+  background: var(--bg-elevated); border: 0.5px solid rgba(251,191,36,0.3);
+  border-radius: var(--r-lg); animation: fb-in 0.3s ease;
+}
+.fb-ty-stars { font-size: 28px; letter-spacing: 2px; }
+.fb-thankyou h3 { font-family: var(--f-head); font-size: 17px; color: var(--txt-primary); }
+.fb-ai-reply {
+  font-size: 13px; color: var(--txt-primary); font-style: italic; line-height: 1.6;
+  background: var(--bg-card); border: 0.5px solid var(--border-subtle);
+  border-radius: var(--r-md); padding: 12px 14px; max-width: 400px;
+}
+.fb-again {
+  margin-top: 6px; padding: 8px 18px; border-radius: var(--r-sm);
+  background: transparent; border: 0.5px solid var(--border-medium);
+  color: var(--txt-secondary); font-family: var(--f-body); font-size: 12px;
+  cursor: pointer; transition: all var(--t-fast);
+}
+.fb-again:hover { border-color: var(--violet); color: var(--txt-primary); }

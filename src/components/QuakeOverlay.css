@@ -1,0 +1,74 @@
+/* ═══ QUAKE OVERLAY ═══════════════════════════════════════════ */
+
+.quake-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quake-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(124,109,250,0.15) 100%);
+  animation: vignette-pulse 0.2s ease-in-out infinite alternate;
+}
+
+@keyframes vignette-pulse {
+  from { opacity: 0.5; }
+  to   { opacity: 1; }
+}
+
+.quake-msg {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(135deg, #7c6dfa, #f06292);
+  color: white;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(16px, 3.5vw, 26px);
+  padding: 16px 28px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 80%;
+  box-shadow: 0 0 60px rgba(124,109,250,0.7), 0 0 120px rgba(240,98,146,0.3);
+  animation: msg-shake 0.15s ease-in-out infinite;
+}
+
+@keyframes msg-shake {
+  0%,100% { transform: rotate(-1.5deg) scale(1); }
+  50%      { transform: rotate(1.5deg) scale(1.03); }
+}
+
+.cracks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.crack {
+  position: absolute;
+  top: 0;
+  width: 1.5px;
+  height: 100%;
+  left: calc(var(--i) * 11% + 5%);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(124,109,250, 0.6) 30%,
+    rgba(240,98,146, 0.8) 60%,
+    transparent 100%
+  );
+  transform-origin: top center;
+  animation: crack-sway 0.15s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * 0.04s);
+  clip-path: polygon(45% 0%, 55% 0%, 65% 50%, 55% 100%, 45% 100%, 35% 50%);
+}
+
+@keyframes crack-sway {
+  from { transform: skewX(calc(-3deg * (var(--i) - 5))) scaleY(0.95); opacity: 0.4; }
+  to   { transform: skewX(calc(4deg * (var(--i) - 5))) scaleY(1); opacity: 0.8; }
+}

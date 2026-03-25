@@ -1,0 +1,105 @@
+/* ══ REFERRAL FORM ══════════════════════════════════════════════ */
+.rf-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: rf-in 0.3s ease;
+}
+@keyframes rf-in { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+/* Photo area */
+.rf-photo-area { display: flex; justify-content: center; }
+.rf-photo-placeholder {
+  width: 90px; height: 90px; border-radius: 50%;
+  border: 2px dashed var(--border-medium);
+  background: var(--bg-elevated);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; cursor: pointer; transition: all var(--t-mid);
+}
+.rf-photo-placeholder:hover { border-color: var(--violet); background: rgba(124,109,250,0.06); }
+.rf-ph-icon  { font-size: 20px; }
+.rf-ph-label { font-size: 10px; font-weight: 700; color: var(--txt-secondary); }
+.rf-ph-sub   { font-size: 9px; color: var(--txt-secondary); opacity: 0.7; }
+
+.rf-photo-preview-wrap { position: relative; }
+.rf-photo-preview {
+  width: 90px; height: 90px; border-radius: 50%;
+  object-fit: cover; border: 2.5px solid var(--violet);
+  box-shadow: 0 0 16px rgba(124,109,250,0.35);
+}
+.rf-photo-remove {
+  position: absolute; top: -4px; right: -4px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--rose); border: 2px solid var(--bg-card);
+  color: white; font-size: 10px; font-weight: 700; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform var(--t-fast);
+}
+.rf-photo-remove:hover { transform: scale(1.15); }
+
+.rf-file-input { display: none; }
+
+/* Fields */
+.rf-fields { display: flex; flex-direction: column; gap: 10px; }
+.rf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.rf-field { display: flex; flex-direction: column; gap: 4px; position: relative; }
+.rf-label { font-size: 11px; font-weight: 600; color: var(--txt-secondary); }
+
+.rf-input {
+  background: var(--bg-input);
+  border: 0.5px solid var(--border-subtle);
+  border-radius: var(--r-sm);
+  padding: 9px 12px;
+  color: var(--txt-primary);
+  font-family: var(--f-body); font-size: 13px;
+  outline: none; transition: border-color var(--t-mid);
+  width: 100%;
+}
+.rf-input:focus { border-color: var(--violet); box-shadow: 0 0 0 2px rgba(124,109,250,0.12); }
+.rf-input::placeholder { color: var(--txt-secondary); }
+
+.rf-select { appearance: none; cursor: pointer; }
+.rf-ta { resize: vertical; min-height: 80px; line-height: 1.6; }
+.rf-char { position: absolute; bottom: 8px; right: 10px; font-size: 10px; color: var(--txt-secondary); opacity: 0.6; }
+
+.rf-error {
+  font-size: 12px; color: #f06292;
+  padding: 8px 12px; border-radius: var(--r-sm);
+  background: rgba(240,98,146,0.1); border: 0.5px solid rgba(240,98,146,0.3);
+}
+
+.rf-submit {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 20px; border-radius: var(--r-md); border: none;
+  background: linear-gradient(135deg, var(--violet), var(--rose));
+  color: white; font-size: 14px; font-weight: 700; font-family: var(--f-body);
+  cursor: pointer; transition: all var(--t-mid);
+  box-shadow: 0 4px 14px rgba(124,109,250,0.4);
+}
+.rf-submit:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(124,109,250,0.5); }
+.rf-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.rf-spinner {
+  width: 13px; height: 13px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.3); border-top-color: white;
+  animation: spin 0.8s linear infinite; display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Success */
+.rf-success {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 32px; text-align: center;
+  background: var(--bg-elevated); border: 0.5px solid rgba(74,222,128,0.3);
+  border-radius: var(--r-lg);
+}
+.rf-success-icon { font-size: 48px; }
+.rf-success h3 { font-family: var(--f-head); font-size: 18px; color: var(--txt-primary); }
+.rf-success p { font-size: 13px; color: var(--txt-secondary); }
+.rf-again-btn {
+  padding: 9px 20px; border-radius: var(--r-sm);
+  background: transparent; border: 0.5px solid var(--border-medium);
+  color: var(--txt-secondary); font-family: var(--f-body); font-size: 13px;
+  cursor: pointer; transition: all var(--t-fast); margin-top: 6px;
+}
+.rf-again-btn:hover { border-color: var(--violet); color: var(--txt-primary); }
