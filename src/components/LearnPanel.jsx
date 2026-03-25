@@ -1117,6 +1117,47 @@ export default function LearnPanel({ apiBase }) {
                   </div>
                 )}
               </div>
+              <div className="learn-mobile-library">
+                <div className="learn-mobile-library-head">
+                  <div>
+                    <span className="learn-section-kicker">More Courses</span>
+                    <h4>Switch without leaving this page</h4>
+                  </div>
+                </div>
+                <div className="learn-mobile-course-row">
+                  {visibleTracks.map((track) => {
+                    const courseProgress = progressForTrack(
+                      track.topics || [],
+                      progressByTrack[track.id] || {},
+                    );
+                    return (
+                      <button
+                        key={track.id}
+                        className={`learn-mobile-course-card ${
+                          track.id === selectedTrackId ? "active" : ""
+                        }`}
+                        style={{
+                          "--learn-accent": track.color || "var(--violet)",
+                        }}
+                        onClick={() => setSelectedTrackId(track.id)}
+                      >
+                        <div className="learn-mobile-course-meta">
+                          <span className="learn-course-kind">
+                            {track.kind === "tree" ? "Learning Tree" : "Course"}
+                          </span>
+                          {track.is_news ? (
+                            <span className="learn-news-pill">News</span>
+                          ) : null}
+                        </div>
+                        <strong>{track.title}</strong>
+                        <span>
+                          {track.topics?.length || 0} topics · {courseProgress}% done
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
               <div
                 className="learn-course-hero"
                 style={{

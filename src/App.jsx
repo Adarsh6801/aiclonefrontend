@@ -18,6 +18,7 @@ export default function App() {
     () => localStorage.getItem("theme") || "dark",
   );
   const [tab, setTab] = useState("chat");
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scores, setScores] = useState({ ai: 0, you: 0 });
 
   const [messages, setMessages] = useState([
@@ -157,6 +158,11 @@ export default function App() {
     }
   };
 
+  const changeTab = (nextTab) => {
+    setTab(nextTab);
+    setMenuOpen(false);
+  };
+
   return (
     <div className={`app-root ${quaking ? "quaking" : ""}`} data-theme={theme}>
       <ParticleCanvas theme={theme} />
@@ -164,8 +170,9 @@ export default function App() {
 
       <div className="shell">
         {/* ── SIDEBAR ── */}
-        <aside className="sidebar">
+        <aside className={`sidebar ${menuOpen ? "mobile-open" : ""}`}>
           <div className="sidebar-brand">
+            <div className="sidebar-brand-main">
             <div className="brand-orb">
               <span>AI</span>
               <div className="orb-ring" />
@@ -176,18 +183,29 @@ export default function App() {
               <span className="status-pill">● Online</span>
             </div>
           </div>
+            <button
+              className={`menu-toggle ${menuOpen ? "active" : ""}`}
+              onClick={() => setMenuOpen((open) => !open)}
+              aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={menuOpen}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+          </div>
 
           <nav className="sidebar-nav">
             <button
               className={`nav-item ${tab === "chat" ? "active" : ""}`}
-              onClick={() => setTab("chat")}
+              onClick={() => changeTab("chat")}
             >
               <IconChat />
               <span>Chat</span>
             </button>
             <button
               className={`nav-item ${tab === "game" ? "active" : ""}`}
-              onClick={() => setTab("game")}
+              onClick={() => changeTab("game")}
             >
               <IconGame />
               <span>Guess Who</span>
@@ -200,14 +218,14 @@ export default function App() {
             </button>
             <button
               className={`nav-item hire-nav ${tab === "hire" ? "active" : ""}`}
-              onClick={() => setTab("hire")}
+              onClick={() => changeTab("hire")}
             >
               <IconHire />
               <span>Hire Me</span>
             </button>
             <button
               className={`nav-item ${tab === "roadmap" ? "active" : ""}`}
-              onClick={() => setTab("roadmap")}
+              onClick={() => changeTab("roadmap")}
             >
               <IconRoadmap />
               <span>Roadmap</span>
@@ -215,14 +233,14 @@ export default function App() {
             </button>
             <button
               className={`nav-item ${tab === "learn" ? "active" : ""}`}
-              onClick={() => setTab("learn")}
+              onClick={() => changeTab("learn")}
             >
               <IconLearn />
               <span>Learn With Me</span>
             </button>
             <button
               className={`nav-item ${tab === "blog" ? "active" : ""}`}
-              onClick={() => setTab("blog")}
+              onClick={() => changeTab("blog")}
             >
               <IconBlog />
               <span>Blog</span>
@@ -232,7 +250,10 @@ export default function App() {
           <div className="sidebar-footer">
             <button
               className="theme-btn"
-              onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
+              onClick={() => {
+                setTheme((t) => (t === "dark" ? "light" : "dark"));
+                setMenuOpen(false);
+              }}
             >
               {theme === "dark" ? <IconSun /> : <IconMoon />}
               <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>

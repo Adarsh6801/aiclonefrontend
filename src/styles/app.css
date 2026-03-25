@@ -2,11 +2,14 @@
 
 .app-root {
   position: relative;
-  width: 100vw; height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 12px;
 }
 
 /* ── QUAKE ── */
@@ -62,9 +65,8 @@
 .shell {
   width: 100%;
   max-width: 1100px;
-  height: calc(100vh - 24px);
+  height: min(860px, calc(100dvh - 24px));
   max-height: 860px;
-  margin: 12px;
   display: grid;
   grid-template-columns: 230px 1fr;
   background: var(--bg-card);
@@ -91,10 +93,18 @@
 .sidebar-brand {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   padding: 0 6px 20px;
   border-bottom: 0.5px solid var(--border-subtle);
   margin-bottom: 8px;
+}
+
+.sidebar-brand-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
 }
 
 .brand-orb {
@@ -140,6 +150,41 @@
   animation: status-blink 2.5s ease-in-out infinite;
 }
 
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 12px;
+  border: 0.5px solid var(--border-subtle);
+  background: transparent;
+  color: var(--txt-primary);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-toggle span {
+  width: 16px;
+  height: 1.5px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform var(--t-mid), opacity var(--t-mid);
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(5.5px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-5.5px) rotate(-45deg);
+}
+
 @keyframes status-blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
 /* ── NAV ── */
@@ -154,6 +199,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
   padding: 11px 14px;
   border-radius: var(--r-md);
   border: none;
@@ -220,6 +266,8 @@
   flex-direction: column;
   background: var(--bg-card);
   transition: background var(--t-slow);
+  min-width: 0;
+  min-height: 0;
 }
 
 /* ── HIRE NAV ── */
@@ -265,4 +313,137 @@
   border: 0.5px solid rgba(158, 156, 7, 0.3);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+@media (max-width: 980px) {
+  .shell {
+    grid-template-columns: 200px 1fr;
+  }
+
+  .sidebar {
+    padding-inline: 10px;
+  }
+
+  .brand-text h1 {
+    font-size: 14px;
+  }
+
+  .nav-item {
+    padding-inline: 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-root {
+    align-items: stretch;
+    padding: 0;
+    overflow: auto;
+  }
+
+  .shell {
+    height: 100dvh;
+    max-height: none;
+    border-radius: 0;
+    margin: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .sidebar {
+    gap: 12px;
+    padding: 12px;
+    border-right: none;
+    border-bottom: 0.5px solid var(--border-subtle);
+  }
+
+  .sidebar-brand {
+    padding: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+
+  .sidebar-brand-main {
+    min-width: 0;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .sidebar-nav,
+  .sidebar-footer {
+    display: none;
+  }
+
+  .sidebar.mobile-open .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4px;
+  }
+
+  .sidebar.mobile-open .sidebar-footer {
+    display: block;
+  }
+
+  .nav-item {
+    width: 100%;
+    white-space: nowrap;
+    padding: 10px 12px;
+  }
+
+  .sidebar-footer {
+    margin-top: 0;
+    padding-top: 12px;
+    border-top: 0.5px solid var(--border-subtle);
+  }
+
+  .theme-btn {
+    width: 100%;
+    padding: 9px 12px;
+  }
+
+  .main-content {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 10px;
+  }
+
+  .sidebar-brand {
+    gap: 10px;
+  }
+
+  .brand-orb {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-text h1 {
+    font-size: 13px;
+  }
+
+  .status-pill {
+    font-size: 10px;
+  }
+
+  .nav-item {
+    gap: 8px;
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .score-badge,
+  .live-badge,
+  .dev-badge {
+    font-size: 8px;
+    padding-inline: 6px;
+  }
+
+  .theme-btn span {
+    display: none;
+  }
 }

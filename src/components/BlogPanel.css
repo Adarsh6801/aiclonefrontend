@@ -398,3 +398,99 @@
 .login-btn:hover:not(:disabled) { transform:translateY(-1px); }
 .login-btn:disabled { opacity:0.4; }
 .login-hint { font-size:11px; color:var(--txt-secondary); text-align:center; }
+
+@media (max-width: 760px) {
+  .blog-header,
+  .write-header {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+  }
+
+  .blog-header {
+    align-items: flex-start;
+  }
+
+  .blog-header-right {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .blog-list-view,
+  .write-form {
+    padding: 16px;
+  }
+
+  .post-content {
+    padding: 18px 18px 32px;
+  }
+
+  .post-title {
+    font-size: 24px;
+  }
+
+  .post-hero-img {
+    height: 180px;
+  }
+
+  .wf-row {
+    grid-template-columns: 1fr;
+  }
+
+  .img-upload-area {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .comment-post-btn {
+    align-self: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-header,
+  .write-header,
+  .blog-list-view,
+  .write-form {
+    padding: 12px;
+  }
+
+  .blog-title,
+  .write-title {
+    font-size: 18px;
+  }
+
+  .blog-card-body,
+  .login-body {
+    padding: 14px;
+  }
+
+  .post-content {
+    padding: 16px 12px 24px;
+  }
+
+  .post-title {
+    font-size: 21px;
+  }
+
+  .post-paragraph {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .post-actions {
+    gap: 8px;
+  }
+
+  .like-btn,
+  .listen-btn,
+  .del-post-btn,
+  .write-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .login-modal {
+    width: calc(100vw - 24px);
+  }
+}

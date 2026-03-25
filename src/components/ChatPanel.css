@@ -387,3 +387,98 @@ mark.highlight {
 }
 .send-btn.ready:hover { transform: scale(1.07); box-shadow: 0 6px 18px rgba(124,109,250,0.55); }
 .send-btn:active { transform: scale(0.95); }
+
+@media (max-width: 760px) {
+  .chat-header {
+    padding: 14px 16px;
+  }
+
+  .search-bar,
+  .quick-row {
+    padding-inline: 16px;
+  }
+
+  .messages-inner {
+    padding: 16px;
+  }
+
+  .msg-body {
+    max-width: 84%;
+  }
+
+  .bubble {
+    padding: 10px 13px;
+  }
+
+  .input-area {
+    padding: 10px 14px 14px;
+  }
+
+  .quick-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+  }
+
+  .quick-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .quick-btn {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-header {
+    padding: 12px 14px;
+  }
+
+  .chat-header-actions {
+    gap: 8px;
+  }
+
+  .header-dots {
+    display: none;
+  }
+
+  .chat-avatar-sm {
+    width: 34px;
+    height: 34px;
+  }
+
+  .messages-inner,
+  .search-bar,
+  .quick-row {
+    padding-inline: 12px;
+  }
+
+  .msg-row {
+    gap: 8px;
+  }
+
+  .msg-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 10px;
+  }
+
+  .msg-body {
+    max-width: 90%;
+  }
+
+  .bubble-text,
+  .msg-input,
+  .search-input {
+    font-size: 13px;
+  }
+
+  .input-area {
+    padding: 10px 12px 12px;
+  }
+
+  .input-box {
+    padding: 7px 8px;
+  }
+}

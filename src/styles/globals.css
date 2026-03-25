@@ -78,15 +78,17 @@
 }
 
 html, body {
-  height: 100%;
+  min-height: 100%;
   font-family: var(--f-body);
   background: var(--bg-base);
   color: var(--txt-primary);
   transition: background var(--t-slow), color var(--t-slow);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
-#root { height: 100%; }
+#root {
+  min-height: 100%;
+}
 
 ::selection { background: rgba(124,109,250,0.3); }
 

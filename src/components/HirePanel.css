@@ -948,3 +948,163 @@
   from { opacity:0; transform: translateY(-5px); }
   to   { opacity:1; transform: translateY(0); }
 }
+
+@media (max-width: 900px) {
+  .stats-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-methods,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ask-quickgrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .score-card,
+  .resume-cta {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 760px) {
+  .hp-root {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .hp-rail {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px;
+    border-right: none;
+    border-bottom: 0.5px solid var(--border-subtle);
+    scrollbar-width: none;
+  }
+
+  .hp-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rail-btn {
+    flex: 0 0 auto;
+    min-width: 72px;
+    padding: 8px 10px;
+  }
+
+  .rail-btn.active::before {
+    left: 16%;
+    right: 16%;
+    top: auto;
+    bottom: 0;
+    width: auto;
+    height: 2px;
+    border-radius: 2px 2px 0 0;
+  }
+
+  .section-wrap {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .hero-inner,
+  .resume-cta,
+  .resume-cta-left,
+  .story-item,
+  .score-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-info,
+  .score-right {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .stats-row,
+  .qnav-grid,
+  .contact-methods,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-row {
+    flex-wrap: wrap;
+  }
+
+  .skill-lbl {
+    width: 100%;
+  }
+
+  .skill-pct {
+    width: auto;
+  }
+
+  .proj-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .exp-head,
+  .ref-foot,
+  .story-meta {
+    flex-wrap: wrap;
+  }
+
+  .ask-wrap {
+    min-height: 0;
+  }
+
+  .msg-body {
+    max-width: 88%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-wrap {
+    padding: 12px;
+  }
+
+  .hero-inner,
+  .story-section {
+    padding: 16px;
+  }
+
+  .hero-name,
+  .sec-head-title {
+    font-size: 16px;
+  }
+
+  .hero-title,
+  .hero-quote,
+  .story-body,
+  .msg-bubble {
+    font-size: 12px;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-num {
+    font-size: 20px;
+  }
+
+  .ask-quickgrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ask-topbar,
+  .ask-inputrow,
+  .ask-msgs-inner {
+    padding-inline: 12px;
+  }
+
+  .score-svg {
+    width: 100px;
+    height: 100px;
+  }
+}

@@ -92,3 +92,24 @@
   cursor: pointer; transition: all var(--t-fast);
 }
 .fb-again:hover { border-color: var(--violet); color: var(--txt-primary); }
+
+@media (max-width: 480px) {
+  .fb-stars-section,
+  .fb-thankyou {
+    padding: 14px;
+  }
+
+  .fb-star {
+    font-size: 30px;
+  }
+
+  .fb-ta-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .fb-ai-reply {
+    max-width: 100%;
+  }
+}

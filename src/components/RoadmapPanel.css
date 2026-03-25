@@ -22,3 +22,41 @@
 .phase-right { color:var(--txt-secondary); }
 .phase-body { padding:0 18px 18px; }
 .phase-item { display:flex; gap:10px; margin-top:8px; color:var(--txt-primary); font-size:13px; }
+
+@media (max-width: 760px) {
+  .rm-panel {
+    padding: 18px 16px;
+  }
+
+  .rm-header,
+  .progress-row,
+  .phase-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rm-title {
+    font-size: 21px;
+  }
+
+  .now-card,
+  .phase-body {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rm-panel {
+    padding: 14px 12px;
+  }
+
+  .rm-title {
+    font-size: 19px;
+  }
+
+  .rm-subtitle,
+  .phase-body p,
+  .phase-item {
+    font-size: 13px;
+  }
+}

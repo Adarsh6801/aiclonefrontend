@@ -103,3 +103,9 @@
   cursor: pointer; transition: all var(--t-fast); margin-top: 6px;
 }
 .rf-again-btn:hover { border-color: var(--violet); color: var(--txt-primary); }
+
+@media (max-width: 480px) {
+  .rf-row {
+    grid-template-columns: 1fr;
+  }
+}

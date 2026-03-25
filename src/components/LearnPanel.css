@@ -352,6 +352,69 @@
   margin-bottom: 16px;
 }
 
+.learn-mobile-library {
+  display: none;
+}
+
+.learn-mobile-library-head h4 {
+  margin-top: 6px;
+  color: var(--txt-primary);
+  font-size: 16px;
+}
+
+.learn-mobile-course-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.learn-mobile-course-row::-webkit-scrollbar {
+  display: none;
+}
+
+.learn-mobile-course-card {
+  min-width: 240px;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 18px;
+  border: 0.5px solid var(--border-medium);
+  background:
+    radial-gradient(circle at top right, rgba(103, 232, 249, 0.1), transparent 28%),
+    var(--bg-elevated);
+  text-align: left;
+  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.learn-mobile-course-card.active {
+  border-color: rgba(103, 232, 249, 0.38);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.learn-mobile-course-card strong {
+  color: var(--txt-primary);
+  line-height: 1.4;
+}
+
+.learn-mobile-course-card span:last-child {
+  color: var(--txt-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.learn-mobile-course-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .learn-hero-progress {
   padding: 18px 20px;
   border-radius: 18px;
@@ -833,11 +896,24 @@
     grid-template-columns: 1fr;
   }
 
+  .learn-mobile-library {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
   .learn-topic-node {
     grid-template-columns: 36px minmax(0, 1fr);
   }
 
   .learn-topic-node-actions {
     grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .learn-mobile-course-card {
+    min-width: min(84vw, 240px);
   }
 }
