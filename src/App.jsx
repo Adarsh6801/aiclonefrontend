@@ -9,6 +9,8 @@ import ParticleCanvas from "./components/ParticleCanvas";
 import QuakeOverlay from "./components/QuakeOverlay";
 import "./styles/app.css";
 
+// Artificial Intelligence (AI) is no longer a futuristic concept—it’s a present-day reality shaping how we live, work, and interact with technology. From smart assistants to self-driving cars, AI is rapidly transforming industries and redefining human potential.
+
 const API = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 export default function App() {
